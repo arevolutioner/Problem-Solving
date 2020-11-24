@@ -132,6 +132,8 @@
 #
 # print(d.maximumDifference)
 
+# ALGORITHMS
+
 #  LINEAR SEARCH ALGORITHM
 #
 # def linear_search(lst, key):
@@ -149,17 +151,75 @@
 #
 # found = linear_search(lst, 123)
 # print("Element 123 is present: ", found)
+#
+# def linear_search(lst, key):
+#     position = 0
+#     flag = False
+#     while position < len(lst) and not flag:
+#         #use flag to break the loop if the key is found and position is steel < len(lst)
+#
+#         if lst[position] == key:
+#             flag = True
+#         else:
+#             position += 1
+#     return flag
+#
+# lst=[1,2,3,4,5,6,7]
+# found = linear_search(lst, 7)
+# print("Element 7 is present in the list: ", found)
 
-def linear_search(lst, key):
-    position = 0
-    flag = False
-    while position < len(lst) and not flag:
-        if lst[position] == key:
-            flag = True
-        else:
-            position += 1
-    return flag
+# RECURSION
 
-lst=[1,2,3,4,5,6,7]
-found = linear_search(lst, 7)
-print("Element 7 is present in the list: ", found)
+# def factorial(n):
+#     if n == 0:
+#         return 1
+#     else:
+#         return n * factorial(n-1)
+#
+#
+# num = input("Enter number: ")
+# n = int(num)
+# f = factorial(n)
+# print(f"Factorial {n}: ", f)
+
+# Fibonacci
+
+# def fibonacci(n):
+#     if n == 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+#     else:
+#         return fibonacci(n-1) + fibonacci(n-2)
+#
+#
+# n = int(input(" Enter a number: "))
+#
+# print(f"Fibonacci {n}: ", fibonacci(n))
+
+# Using Memoization and Decorators
+
+def memoize(f):
+    memo = {}
+
+    def helper(x):
+        if x not in memo:
+            memo[x] = f(x)
+        return memo[x]
+
+    return helper
+
+
+@memoize
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+
+
+
+print(fib(100))
