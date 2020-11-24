@@ -66,11 +66,100 @@
 # print(palindrome)
 
 # Fibonaci series
-
-fibo = lambda n: n if n <= 1 else fibo(n - 1) + fibo(n - 2)
-result = fibo(10)
-print(result)
-
-
+#
+# fibo = lambda n: n if n <= 1 else fibo(n - 1) + fibo(n - 2)
+# result = fibo(10)
+# print(result)
 
 
+# def fibo(n):
+#     if n <= 1:
+#         return n
+#     else:
+#         return fibo(n-1) + fibo(n-2)
+#
+#
+# print(fibo(5))
+# 
+
+
+# from abc import ABCMeta, abstractmethod
+#
+#
+# class Book(object, metaclass=ABCMeta):
+#     def __init__(self, title, author):
+#         self.title=title
+#         self.author=author
+#     @abstractmethod
+#     def display(): pass
+#
+# #Write MyBook class
+# class MyBook(Book):
+#     price = 0
+#     def __init__(self, title, author, price):
+#         super(Book, self).__init__()
+#         self.price = price
+#
+#     def display(self):
+#         print("Title: " + title)
+#         print("Author: " + author)
+#         print("Price: " + str(price))
+#
+#
+# title = input()
+# author = input()
+# price = int(input())
+# new_novel = MyBook(title, author, price)
+# new_novel.display()
+
+# class Difference:
+#     def __init__(self, a):
+#         self.__elements = a
+#
+#     def computeDifference(self):
+#         self.maximumDifference = max(self.__elements) - min(self.__elements)
+#
+#     # Add your code here
+#
+#
+# # End of Difference class
+#
+# _ = input()
+# a = [int(e) for e in input().split(' ')]
+#
+# d = Difference(a)
+# d.computeDifference()
+#
+# print(d.maximumDifference)
+
+#  LINEAR SEARCH ALGORITHM
+#
+# def linear_search(lst, key):
+#     position = 0
+#     flag = False
+#     while position < len(lst) and not flag:
+#         if lst[position] == key:
+#             flag = True
+#         else:
+#             position += 1
+#     return flag
+#
+#
+# lst = [65, 88, 123, 12, 3]
+#
+# found = linear_search(lst, 123)
+# print("Element 123 is present: ", found)
+
+def linear_search(lst, key):
+    position = 0
+    flag = False
+    while position < len(lst) and not flag:
+        if lst[position] == key:
+            flag = True
+        else:
+            position += 1
+    return flag
+
+lst=[1,2,3,4,5,6,7]
+found = linear_search(lst, 7)
+print("Element 7 is present in the list: ", found)
