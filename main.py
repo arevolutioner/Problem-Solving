@@ -152,21 +152,6 @@
 # found = linear_search(lst, 123)
 # print("Element 123 is present: ", found)
 #
-# def linear_search(lst, key):
-#     position = 0
-#     flag = False
-#     while position < len(lst) and not flag:
-#         #use flag to break the loop if the key is found and position is steel < len(lst)
-#
-#         if lst[position] == key:
-#             flag = True
-#         else:
-#             position += 1
-#     return flag
-#
-# lst=[1,2,3,4,5,6,7]
-# found = linear_search(lst, 7)
-# print("Element 7 is present in the list: ", found)
 
 # RECURSION
 
@@ -199,27 +184,71 @@
 
 # Using Memoization and Decorators
 
-def memoize(f):
-    memo = {}
+# def memoize(f):
+#     memo = {}
+#
+#     def helper(x):
+#         if x not in memo:
+#             memo[x] = f(x)
+#         return memo[x]
+#
+#     return helper
+#
+#
+# @memoize
+# def fib(n):
+#     if n == 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+#     else:
+#         return fib(n - 1) + fib(n - 2)
+#
+#
+#
+#
+# print(fib(100))
 
-    def helper(x):
-        if x not in memo:
-            memo[x] = f(x)
-        return memo[x]
+# BINARY SEARCH Iteratively
+#
+# def binary_search(lst, key):
+#     low = 0
+#     high = len(lst)-1
+#     while low <= high:
+#         mid = (high+low)//2
+#         if key == lst[mid]:
+#             return True
+#         elif key < lst[mid]:
+#             high = mid-1
+#         else:
+#             low = mid + 1
 
-    return helper
+# def binary_search(lst, key): # the list has to be sorted
+#     low = 0
+#     high = len(lst) - 1
+#     while low <= high:
+#         mid = (low+high)//2
+#         if lst[mid] == key:
+#             return True
+#         elif key < lst[mid]:
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+
+#
+# lst = [15, 21, 47, 84, 96]
+# found = binary_search(lst, 15)
+# print(found)
+
+# def linear_search(lst, key): #the list can be unsorted
+#     position = 0
+#     flag = False
+#     while position <= len(lst) and not flag:
+#         if lst[position] == key:
+#             return True
+#         else:
+#             position += 1
+#     return flag
 
 
-@memoize
-def fib(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fib(n - 1) + fib(n - 2)
 
-
-
-
-print(fib(100))
