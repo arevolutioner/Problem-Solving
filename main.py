@@ -1,3 +1,4 @@
+from ex import Empty
 # Problem Solvind DAY 8
 
 # Task
@@ -234,11 +235,12 @@
 #             high = mid - 1
 #         else:
 #             low = mid + 1
-
+#     return False
+#
 #
 # lst = [15, 21, 47, 84, 96]
-# found = binary_search(lst, 15)
-# print(found)
+# found = binary_search(lst, 90)
+# print("The Element 90 is ", found)
 
 # def linear_search(lst, key): #the list can be unsorted
 #     position = 0
@@ -250,5 +252,52 @@
 #             position += 1
 #     return flag
 
+#  Binary search RECURSIVE CALL
+
+# def binary_search(lst, low, high, key): #the list hast to be sorted
+#     if low > high:
+#         return False
+#     else:
+#         mid = (low+high)//2
+#         if key == lst[mid]:
+#             return True
+#         elif key < lst[mid]:
+#             return binary_search(lst, low, mid - 1, key)
+#         else:
+#             return binary_search(lst, mid + 1, high, key)
+#
+#
+# lst = [15, 21, 47, 84, 96]
+# found = binary_search(lst, 0, 2, 84)
+# print("The Element 84 is ", found)
+
+class StackArray:
+    def __int__(self, data):
+        self.data = []
+
+    def __len__(self):
+        return len(self.data)
+
+    def is_empty(self):
+        return len(self.data) == 0
+
+    def push(self, e):
+        return self.data.append(e)
+
+    def pop(self):
+        if self.is_empty:
+            raise Empty("Stack is empty: ")
+        else:
+            return self.data.pop()
+
+    def top(self):
+        if self.is_empty:
+            raise Empty("Stack is empty: ")
+        return self.data[-1]
 
 
+s = StackArray()
+s.push(10)
+s.push(20)
+print("Stack: ", s)
+print("Stack length: ", len(s))
