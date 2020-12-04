@@ -271,33 +271,99 @@ from ex import Empty
 # found = binary_search(lst, 0, 2, 84)
 # print("The Element 84 is ", found)
 
-class StackArray:
-    def __int__(self, data):
-        self.data = []
+# class StackArray:
+#     def __int__(self, data):
+#         self.data = []
+#
+#     def __len__(self):
+#         return len(self.data)
+#
+#     def is_empty(self):
+#         return len(self.data) == 0
+#
+#     def push(self, e):
+#         return self.data.append(e)
+#
+#     def pop(self):
+#         if self.is_empty:
+#             raise Empty("Stack is empty: ")
+#         else:
+#             return self.data.pop()
+#
+#     def top(self):
+#         if self.is_empty:
+#             raise Empty("Stack is empty: ")
+#         return self.data[-1]
+#
+#
+# s = StackArray()
+# s.push(10)
+# s.push(20)
+# print("Stack: ", s)
+# print("Stack length: ", len(s))
 
-    def __len__(self):
-        return len(self.data)
+#PROBLEM TWO SUM:
 
-    def is_empty(self):
-        return len(self.data) == 0
+def two_sum(arr, target): #it has to be a sorted list
+    #set the first and the last number of the list
+    left = 0
+    right = len(arr) - 1
+    result = []
+    #loop through the list while the first is smaller than the last
+    while left < right:
+        #find and assign the current sum of the two numbers
+        curr = arr[left] + arr[right]
+        #increment by one the smaller if the sum is smaller than the target
+        # increment by one the smaller if the sum is smaller than the target
+        if curr < target:
 
-    def push(self, e):
-        return self.data.append(e)
-
-    def pop(self):
-        if self.is_empty:
-            raise Empty("Stack is empty: ")
+            left += 1
+        # decrement by one the last number if the sum is bigger than the target
+        elif curr > target:
+            right -= 1
         else:
-            return self.data.pop()
+            result.append(arr[left])
+            result.append(arr[right])
+        return result
 
-    def top(self):
-        if self.is_empty:
-            raise Empty("Stack is empty: ")
-        return self.data[-1]
+    return result[-1, -1]
 
 
-s = StackArray()
-s.push(10)
-s.push(20)
-print("Stack: ", s)
-print("Stack length: ", len(s))
+arr = [3,4,6,8,9]
+
+target = 12
+print(two_sum(arr, target))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
