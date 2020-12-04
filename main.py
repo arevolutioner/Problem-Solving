@@ -304,65 +304,80 @@ from ex import Empty
 
 #PROBLEM TWO SUM:
 
-def two_sum(arr, target): #it has to be a sorted list
-    #set the first and the last number of the list
-    left = 0
-    right = len(arr) - 1
-    result = []
-    #loop through the list while the first is smaller than the last
-    while left < right:
-        #find and assign the current sum of the two numbers
-        curr = arr[left] + arr[right]
-        #increment by one the smaller if the sum is smaller than the target
-        # increment by one the smaller if the sum is smaller than the target
-        if curr < target:
+# BruteForceApproach
 
-            left += 1
-        # decrement by one the last number if the sum is bigger than the target
-        elif curr > target:
-            right -= 1
-        else:
-            result.append(arr[left])
-            result.append(arr[right])
-        return result
+# def two_sum_sum(arr, target):
+#     for i in range(len(arr)):
+#         for j in range(i + 1, len(arr)):
+#             if arr[i] + arr[j] == target:
+#                 return [i, j]
+#
+#
+# # The Dictionary Solution
+#
+# def two_sum_dict(arr, target):
+#     dictionary = {}
+#     answer = []
+#     for i in range(len(arr)):
+#         second_number = target - arr[i]
+#         if second_number in dictionary.keys():
+#             second_index = arr.index(second_number)
+#             if i != second_index:
+#                 return sorted([i, second_index])
+#         dictionary.update({arr[i]: i})
 
-    return result[-1, -1]
-
-
-arr = [3,4,6,8,9]
-
-target = 12
-print(two_sum(arr, target))
-
-
-
-
-
-
-
-
-
-
-
-
-
+# arr = [3, 4, 6, 8, 9]
+# target = 12
+#
+#
+# def two_sum3(arr, target):
+#
+#     dict = {}
+#
+#     for i, elem in enumerate(arr):
+#         compliment = target - elem
+#         if compliment in dict:
+#             return [dict[compliment], i]
+#
+#         dict[elem] = i
+#     return []
+#
+#
+# print(two_sum3(arr, target))
 
 
+# def two_sum(arr, target): #it has to be a sorted list
+#     #set the first and the last number of the list
+#     left = 0
+#     right = len(arr) - 1
+#     result = []
+#     #loop through the list while the first is smaller than the last
+#     while left < right:
+#         #find and assign the current sum of the two numbers
+#         curr = arr[left] + arr[right]
+#         #increment by one the smaller if the sum is smaller than the target
+#         # increment by one the smaller if the sum is smaller than the target
+#         if curr < target:
+#
+#             left += 1
+#         # decrement by one the last number if the sum is bigger than the target
+#         elif curr > target:
+#             right -= 1
+#         else:
+#             result.append(arr[left])
+#             result.append(arr[right])
+#         return result
+#
+#     return result[-1, -1]
 
 
 
+# print(two_sum(arr, target))
+# print(two_sum_sum(arr, target))
+# print(two_sum_dict(arr, target))
 
 
-
-
-
-
-
-
-
-
-
-
+# FInd the sum of three numbers in a sorted array
 
 
 
